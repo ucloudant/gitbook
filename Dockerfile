@@ -99,9 +99,5 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
 
 WORKDIR /var/gitbook
 RUN apk add --no-cache \
-        graphviz \
-    && yarn global add --dev gitbook-cli \
-    && export PATH="$(yarn global bin):$PATH" \
-    && gitbook fetch
+        graphviz
 EXPOSE 4000 35729
-CMD gitbook install && gitbook serve
