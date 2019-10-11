@@ -1,5 +1,7 @@
 FROM alpine:3.10
 
+ADD fonts /usr/share/fonts
+
 ENV JAVA_HOME /opt/openjdk-14
 ENV PATH $JAVA_HOME/bin:$PATH
 
@@ -35,7 +37,7 @@ RUN addgroup -g 1000 node \
     && adduser -u 1000 -G node -s /bin/sh -D node \
     && apk add --no-cache \
         libstdc++ \
-        ttf-dejavu \
+        fontconfig \
     && apk add --no-cache --virtual .build-deps \
         binutils-gold \
         curl \
